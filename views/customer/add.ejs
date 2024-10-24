@@ -1,0 +1,98 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Driver Details</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+        <div class="btn-group me-2">
+            <button href="/add" class="btn btn-sm btn-outline-secondary">?</button>
+        </div>
+    </div>
+</div>
+
+<div class="col py-3">
+    <div class="row">
+        <div class="col">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+                    <li class="breadcrumb-item active">New Driver</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="col text-end fw-lighter">
+            <b>ID</b>
+        </div>
+    </div>
+</div>
+
+<form id="driverForm" action="/add" method="POST" onsubmit="return validateForm()">
+
+    <div class="row form-group mb-4">
+        <div class="col-md-6">
+            <label for="firstname">First Name</label>
+            <input type="text" class="form-control" id="firstname" name="firstname" placeholder="First Name" required>
+        </div>
+        <div class="col-md-6">
+            <label for="lastname">Last Name</label>
+            <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Last Name" required>
+        </div>
+    </div>
+
+    <div class="row form-group mb-4">
+        <div class="col-md-6">
+            <label for="ph">Phone</label>
+            <input type="text" class="form-control" id="ph" name="ph" placeholder="Phone" required>
+        </div>
+        <div class="col-md-6">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+        </div>
+    </div>
+
+    <div class="row form-group mb-4">
+        <div class="col-md-12">
+            <label for="vehicleinfo">Vehicle No</label>
+            <input type="text" class="form-control" id="vehicleinfo" name="vehicleinfo" placeholder="Vehicle No" required>
+        </div>
+    </div>
+
+    <div class="row form-group mb-4">
+        <div class="col-md-12">
+            <label for="detail">Customer Details</label>
+            <textarea class="form-control" name="detail" id="detail" cols="30" rows="4" placeholder="Customer Details"></textarea>
+        </div>
+    </div>
+
+    <div class="form-group mb-4">
+        <button type="submit" class="btn btn-primary">Add Customer</button>
+    </div>
+
+</form>
+
+<script>
+function validateForm() {
+    // Validate First Name (only alphabets)
+    const firstname = document.getElementById("firstname").value;
+    const firstnameRegex = /^[A-Za-z]+$/;
+    if (!firstnameRegex.test(firstname)) {
+        alert("First name must contain only alphabets.");
+        return false;
+    }
+
+    // Validate Last Name (only alphabets)
+    const lastname = document.getElementById("lastname").value;
+    const lastnameRegex = /^[A-Za-z]+$/;
+    if (!lastnameRegex.test(lastname)) {
+        alert("Last name must contain only alphabets.");
+        return false;
+    }
+
+    // Validate Phone (exactly 10 digits)
+    const phone = document.getElementById("ph").value;
+    const phoneRegex = /^[0-9]{10}$/;
+    if (!phoneRegex.test(phone)) {
+        alert("Phone number must contain exactly 10 digits.");
+        return false;
+    }
+
+    return true; // Form is valid, proceed with submission
+}
+</script>
