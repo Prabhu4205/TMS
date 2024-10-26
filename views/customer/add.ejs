@@ -69,7 +69,6 @@
 
 <script>
 function validateForm() {
-    // Validate First Name (only alphabets)
     const firstname = document.getElementById("firstname").value;
     const firstnameRegex = /^[A-Za-z]+$/;
     if (!firstnameRegex.test(firstname)) {
@@ -77,7 +76,6 @@ function validateForm() {
         return false;
     }
 
-    // Validate Last Name (only alphabets)
     const lastname = document.getElementById("lastname").value;
     const lastnameRegex = /^[A-Za-z]+$/;
     if (!lastnameRegex.test(lastname)) {
@@ -85,7 +83,6 @@ function validateForm() {
         return false;
     }
 
-    // Validate Phone (exactly 10 digits)
     const phone = document.getElementById("ph").value;
     const phoneRegex = /^[0-9]{10}$/;
     if (!phoneRegex.test(phone)) {
@@ -93,6 +90,6 @@ function validateForm() {
         return false;
     }
 
-    return true; // Form is valid, proceed with submission
+    return true;
 }
 </script>
